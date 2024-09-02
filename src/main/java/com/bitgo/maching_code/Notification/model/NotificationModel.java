@@ -30,4 +30,7 @@ public class NotificationModel {
 
     @Column(name = "trading_volume")
     private int tradingVolume;
+
+    @Column(name = "status")
+    private String status;
 }

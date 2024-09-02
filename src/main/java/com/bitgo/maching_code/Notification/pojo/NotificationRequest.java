@@ -17,4 +17,5 @@ public class NotificationRequest {
     private double currentPrice;
     private double dailyPercentage;
     private int tradingVolume;
+    private String status;
 }

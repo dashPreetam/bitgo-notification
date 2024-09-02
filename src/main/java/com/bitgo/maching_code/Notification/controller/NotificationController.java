@@ -34,6 +34,15 @@ public class NotificationController {
         }
     }
 
+    @PatchMapping()
+    public ResponseEntity<Object> updateNotification(@RequestParam(name = "id") int id ,@RequestBody NotificationRequest notificationRequest){
+        try {
+            return new ResponseEntity<>(notificationService.updateNotification(id, notificationRequest), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @PostMapping(value = "/send")
     public ResponseEntity<Object> sendNotification(@RequestBody NotificationSendRequest notificationSendRequest){
         try {

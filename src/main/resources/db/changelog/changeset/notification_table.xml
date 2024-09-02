@@ -9,6 +9,7 @@
             <column name="current_price" type="INT"/>
             <column name="daily_percentage" type="INT"/>
             <column name="trading_volume" type="INT"/>
+            <column name="status" type="VARCHAR(10)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

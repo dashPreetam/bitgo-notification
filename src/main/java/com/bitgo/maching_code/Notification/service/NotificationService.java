@@ -34,6 +34,7 @@ public class NotificationService {
         notification.setCurrentPrice(notificationRequest.getCurrentPrice());
         notification.setDailyPercentage(notificationRequest.getDailyPercentage());
         notification.setTradingVolume(notification.getTradingVolume());
+        notification.setStatus(notificationRequest.getStatus());
         notification.setId((int) (notificationRepo.count() +1));
 
         notificationRepo.save(notification);
@@ -56,5 +57,16 @@ public class NotificationService {
 
     public List<NotificationSendDetailsModel> getNotificationByStatus(String status) {
         return sendDetailsRepo.findAllByStatus(status);
+    }
+
+    public NotificationModel updateNotification(int id, NotificationRequest notificationRequest) {
+        NotificationModel notification = new NotificationModel();
+        notification.setCurrentPrice(notificationRequest.getCurrentPrice());
+        notification.setDailyPercentage(notificationRequest.getDailyPercentage());
+        notification.setTradingVolume(notification.getTradingVolume());
+        notification.setStatus(notificationRequest.getStatus());
+        notification.setId(id);
+
+        return notificationRepo.save(notification);
     }
 }
